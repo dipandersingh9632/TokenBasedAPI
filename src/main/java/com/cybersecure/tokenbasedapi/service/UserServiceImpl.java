@@ -33,9 +33,14 @@ public class UserServiceImpl implements UserService{
         User newUser = new User();
         BeanUtils.copyProperties(registerDto, newUser);
         newUser.setPassword(bcryptEncoder.encode(newUser.getPassword()));
-
-        Role roles = roleRepository.findByName("USER").get();
-        newUser.setRoles(Collections.singletonList(roles));
+        if(newUser.getName().contains("_admin")){
+            Role roles = roleRepository.findByName("ROLE_ADMIN").get();
+            newUser.setRoles(Collections.singletonList(roles));
+        }
+        else{
+            Role roles = roleRepository.findByName("ROLE_USER").get();
+            newUser.setRoles(Collections.singletonList(roles));
+        }
         userRepository.save(newUser);
         return "Successfully Created User";
     }
