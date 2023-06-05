@@ -26,15 +26,16 @@ To run this project
    "username":"username", \
    "password":"password" \
    } \
-   you get a JSON token Save it
-5. To Post Something, You must login with your ADMIN credentials \ 
+   you get a JSON token Save it and pass the Token in View and add Post
+5. To Post Something, You must login with your ADMIN credentials \
    Create a POST request on Postman \
    url: http://localhost:8080/api/v1/admin/post \
+   In body -> raw -> json \
    { \
    "description":"Post_description" \
-   } \
+   } 
 6. To See all the Post, Create a GET request in Postman 
    Must be Logged In either as a ADMIN or USER
-   url: http://localhost:8080/api/v1/getAllPost \
+   url: http://localhost:8080/api/v1/getAllPost 
   
   
