@@ -18,7 +18,9 @@ public class User {
     private long id;
 
     String name;
+    @Column(nullable = false, unique = true)
     String username;
+    @Column(nullable = false)
     String password;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
